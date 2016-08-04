@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>create caps with createElement</title>
+		<style>
+		.main{
+			width:900px;
+			height:550px;
+			margin:0 auto;
+			border:1px solid red;
+		}
+		img{
+				width:100%;
+				height:80%;
+			}
+		p{
+				background-color: gray;
+				height:30px;
+				position: relative;
+				bottom:50px;
+				opacity: 0.8;
+				font-size:18px;
+				padding:0 45%;
+				
+				}
+
+		button{
+			
+			height: 40px;
+			float:left;
+			margin:0 50px 0 50px;
+		}
+		.borImg{
+			border:10px solid gray;
+		}
+		.textColor{
+			background-color: red;
+			color:yellow;
+		}
+		.posTop{
+			position:relative;
+			bottom:460px;
+
+		}	
+		
+		</style>
+	</head>
+	<body>
+
+		<script>
+		var myMain = document.createElement("div");
+		myMain.setAttribute("class", "main");
+		document.body.appendChild(myMain);
+
+		var imagBig = document.createElement("img");
+
+		imagBig.setAttribute("src", "images/01.jpg");
+		myMain.appendChild(imagBig);
+
+		var someText=document.createElement("p");
+		var t = document.createTextNode("picture one");
+		someText.appendChild(t);
+		myMain.appendChild(someText); 
+
+		var changeBorder=document.createElement("button");
+		changeBorder.innerHTML = "Change image border";
+		changeBorder.setAttribute("onclick", "bordChage()");
+		myMain.appendChild(changeBorder);
+
+		var changeTextBac=document.createElement("button");
+		changeTextBac.innerHTML = "Change text background and color";
+		changeTextBac.setAttribute("onclick", "textChage()");
+		myMain.appendChild(changeTextBac);
+
+		var changePosit=document.createElement("button");
+		changePosit.innerHTML="Change text position on top";
+		changePosit.setAttribute("onclick", "positChange()");
+		myMain.appendChild(changePosit);
+
+		function bordChage(){
+
+			var attr=imagBig.getAttribute("class");
+			imagBig.setAttribute("class", "borImg");
+
+			if(attr=="borImg"){
+
+				imagBig.setAttribute("class", "bor");
+			}
+
+		}
+
+
+		function textChage(){
+			var attr=someText.getAttribute("class");
+			someText.setAttribute("class", "textColor");
+			if(attr=="textColor"){
+				someText.setAttribute("class","bor");
+			}
+		}
+
+		function positChange(){
+			var attr=someText.getAttribute("class");
+			someText.setAttribute("class", "posTop");
+			if(attr=="posTop"){
+				someText.setAttribute("class","bor");
+			}
+		}
+
+		</script>
+	</body>
+</html>
